@@ -43,10 +43,6 @@ class MainVC: UIViewController {
         guard let text = mainView.input.text else { return }
         if text == "" { return }
         guard let key = mainView.keyTextView.text else { return }
-        if key == "" {
-            mainView.output.text = "Error: key not found."
-            return
-        }
         
         var encryptedText: String?
         do {
@@ -64,10 +60,6 @@ class MainVC: UIViewController {
         guard let text = mainView.input.text else { return }
         if text == "" { return }
         guard let key = mainView.keyTextView.text else { return }
-        if key == "" {
-            mainView.output.text = "Error: key not found."
-            return
-        }
         
         var decryptedText: String?
         do {
