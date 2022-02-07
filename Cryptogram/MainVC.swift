@@ -14,6 +14,7 @@ class MainVC: UIViewController {
         let mainView = MainView(frame: view.frame)
         view.addSubview(mainView)
         
+        // Tap recognizer to dismiss keyboard
         let tapGestureReconizer = UITapGestureRecognizer(target: self, action: #selector(tap))
         tapGestureReconizer.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGestureReconizer)
