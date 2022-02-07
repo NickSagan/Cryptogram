@@ -42,18 +42,27 @@ class MainView: UIView {
     var input: UITextView = {
         let txt = UITextView()
         txt.text = "Paste the text you want to encrypt or decrypt here"
+        txt.layer.borderColor = CGColor(gray: 100, alpha: 1)
+        txt.layer.borderWidth = 1.0
+        txt.layer.cornerRadius = 5.0
         return txt
     }()
     
     var output: UITextView = {
         let txt = UITextView()
         txt.text = "The decrypted or encrypted text will appear here"
+        txt.layer.borderColor = CGColor(gray: 100, alpha: 1)
+        txt.layer.borderWidth = 1.0
+        txt.layer.cornerRadius = 5.0
         return txt
     }()
     
     var keyTextView: UITextView = {
         let txt = UITextView()
         txt.text = "Paste your key here"
+        txt.layer.borderColor = CGColor(gray: 100, alpha: 1)
+        txt.layer.borderWidth = 1.0
+        txt.layer.cornerRadius = 5.0
         return txt
     }()
     
@@ -73,11 +82,23 @@ class MainView: UIView {
         return btn
     }()
     
+//    var stackView: UIStackView {
+//        let sw = UIStackView()
+//        sw.axis = NSLayoutConstraint.Axis.horizontal
+//        sw.distribution = UIStackView.Distribution.fillEqually
+//        sw.alignment = UIStackView.Alignment.center
+//        sw.spacing = 15
+//        sw.addArrangedSubview(encrypt)
+//        sw.addArrangedSubview(decrypt)
+//        sw.translatesAutoresizingMaskIntoConstraints = false
+//        return sw
+//    }
+    
     var sendText: UIButton = {
         let btn = UIButton(type: .system)
         var config = UIButton.Configuration.filled()
         btn.configuration = config
-        btn.setTitle("Decrypt", for: .normal)
+        btn.setTitle("Send text", for: .normal)
         return btn
     }()
     
@@ -85,13 +106,13 @@ class MainView: UIView {
         let btn = UIButton(type: .system)
         var config = UIButton.Configuration.filled()
         btn.configuration = config
-        btn.setTitle("Decrypt", for: .normal)
+        btn.setTitle("Send key", for: .normal)
         return btn
     }()
     
     var generateRandomKey: UIButton = {
         let btn = UIButton(type: .system)
-        var config = UIButton.Configuration.filled()
+        var config = UIButton.Configuration.plain()
         btn.configuration = config
         btn.setTitle("Random key", for: .normal)
         return btn
@@ -104,7 +125,6 @@ class MainView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUp()
-        backgroundColor = .systemGreen
     }
     
     func setUp() {
@@ -116,8 +136,10 @@ class MainView: UIView {
         self.addSubview(input)
         self.addSubview(output)
         self.addSubview(keyTextView)
+        
         self.addSubview(encrypt)
         self.addSubview(decrypt)
+        
         self.addSubview(sendText)
         self.addSubview(sendKey)
         self.addSubview(generateRandomKey)
@@ -139,7 +161,7 @@ class MainView: UIView {
             inputLabel.leadingAnchor.constraint(equalTo: margin.leadingAnchor),
             
             input.topAnchor.constraint(equalTo: inputLabel.bottomAnchor, constant: 10),
-            input.heightAnchor.constraint(equalTo: margin.heightAnchor, multiplier: 0.2),
+            input.heightAnchor.constraint(equalTo: margin.heightAnchor, multiplier: 0.3),
             input.leadingAnchor.constraint(equalTo: margin.leadingAnchor),
             input.trailingAnchor.constraint(equalTo: margin.trailingAnchor),
             
@@ -148,33 +170,37 @@ class MainView: UIView {
             
             keyTextView.topAnchor.constraint(equalTo: keyLabel.bottomAnchor, constant: 10),
             keyTextView.leadingAnchor.constraint(equalTo: margin.leadingAnchor),
-            keyTextView.heightAnchor.constraint(equalTo: margin.heightAnchor, multiplier: 0.1),
+            keyTextView.heightAnchor.constraint(equalTo: margin.heightAnchor, multiplier: 0.05),
             
             generateRandomKey.topAnchor.constraint(equalTo: keyLabel.bottomAnchor, constant: 10),
             generateRandomKey.leadingAnchor.constraint(equalTo: keyTextView.trailingAnchor, constant: 20),
             generateRandomKey.trailingAnchor.constraint(equalTo: margin.trailingAnchor),
             
-            encrypt.topAnchor.constraint(equalTo: keyTextView.bottomAnchor, constant: 10),
-            encrypt.leadingAnchor.constraint(equalTo: margin.leadingAnchor),
+            encrypt.topAnchor.constraint(equalTo: keyTextView.bottomAnchor, constant: 15),
+            encrypt.leadingAnchor.constraint(equalTo: margin.leadingAnchor, constant: 50),
             
-            decrypt.topAnchor.constraint(equalTo: keyTextView.bottomAnchor, constant: 10),
+            decrypt.topAnchor.constraint(equalTo: keyTextView.bottomAnchor, constant: 15),
             decrypt.leadingAnchor.constraint(equalTo: encrypt.trailingAnchor, constant: 20),
-            decrypt.trailingAnchor.constraint(equalTo: margin.trailingAnchor),
+            decrypt.widthAnchor.constraint(equalTo: encrypt.widthAnchor),
+            decrypt.trailingAnchor.constraint(equalTo: margin.trailingAnchor, constant: -50),
             
-            outputLabel.topAnchor.constraint(equalTo: decrypt.bottomAnchor, constant: 10),
+            outputLabel.topAnchor.constraint(equalTo: encrypt.bottomAnchor, constant: 10),
             outputLabel.leadingAnchor.constraint(equalTo: margin.leadingAnchor),
             
             output.topAnchor.constraint(equalTo: outputLabel.bottomAnchor, constant: 10),
-            output.heightAnchor.constraint(equalTo: margin.heightAnchor, multiplier: 0.2),
+            output.heightAnchor.constraint(equalTo: margin.heightAnchor, multiplier: 0.3),
             output.leadingAnchor.constraint(equalTo: margin.leadingAnchor),
             output.trailingAnchor.constraint(equalTo: margin.trailingAnchor),
             
-            sendText.topAnchor.constraint(equalTo: output.bottomAnchor, constant: 10),
-            sendText.leadingAnchor.constraint(equalTo: margin.leadingAnchor),
+            sendText.topAnchor.constraint(greaterThanOrEqualTo: output.bottomAnchor, constant: 10),
+            sendText.leadingAnchor.constraint(equalTo: margin.leadingAnchor, constant: 50),
+            sendText.bottomAnchor.constraint(equalTo: margin.bottomAnchor),
             
-            sendKey.topAnchor.constraint(equalTo: output.bottomAnchor, constant: 10),
+            sendKey.topAnchor.constraint(greaterThanOrEqualTo: output.bottomAnchor, constant: 10),
             sendKey.leadingAnchor.constraint(equalTo: sendText.trailingAnchor, constant: 20),
-            sendKey.trailingAnchor.constraint(equalTo: margin.trailingAnchor)
+            sendKey.widthAnchor.constraint(equalTo: sendText.widthAnchor),
+            sendKey.trailingAnchor.constraint(equalTo: margin.trailingAnchor, constant: -50),
+            sendKey.bottomAnchor.constraint(equalTo: margin.bottomAnchor)
             
         ]
         NSLayoutConstraint.activate(constraints)
