@@ -43,6 +43,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		913BBC8A27B1936F00E33297 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				91D614EE27B0286A0094D9C3 /* AppDelegate.swift */,
+				91D614F027B0286A0094D9C3 /* SceneDelegate.swift */,
+				91D614F927B0286E0094D9C3 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		913BBC8B27B1937700E33297 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9107A55A27B167E70056308C /* MainVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		913BBC8C27B1937E00E33297 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9107A55C27B171BE0056308C /* MainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		913BBC8D27B1938400E33297 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				91D6150227B02A4E0094D9C3 /* Encryption.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		91D614E227B0286A0094D9C3 = {
 			isa = PBXGroup;
 			children = (
@@ -63,15 +97,13 @@
 		91D614ED27B0286A0094D9C3 /* Cryptogram */ = {
 			isa = PBXGroup;
 			children = (
-				91D614EE27B0286A0094D9C3 /* AppDelegate.swift */,
-				91D614F027B0286A0094D9C3 /* SceneDelegate.swift */,
+				913BBC8D27B1938400E33297 /* Model */,
+				913BBC8C27B1937E00E33297 /* View */,
+				913BBC8B27B1937700E33297 /* Controller */,
+				913BBC8A27B1936F00E33297 /* Supporting files */,
 				91D614F727B0286E0094D9C3 /* Assets.xcassets */,
-				91D614F927B0286E0094D9C3 /* LaunchScreen.storyboard */,
 				91D614FC27B0286E0094D9C3 /* Info.plist */,
-				91D6150227B02A4E0094D9C3 /* Encryption.swift */,
 				91D6150727B02C150094D9C3 /* Cryptogram-Bridging-Header.h */,
-				9107A55A27B167E70056308C /* MainVC.swift */,
-				9107A55C27B171BE0056308C /* MainView.swift */,
 			);
 			path = Cryptogram;
 			sourceTree = "<group>";
@@ -304,7 +336,6 @@
 				INFOPLIST_FILE = Cryptogram/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -334,7 +365,6 @@
 				INFOPLIST_FILE = Cryptogram/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
