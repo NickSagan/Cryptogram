@@ -9,22 +9,17 @@ import UIKit
 
 class MainVC: UIViewController {
     
-    var mainView: MainView!
-    var ac: UIActivityViewController!
+    private var mainView: MainView!
+    private var ac: UIActivityViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView = MainView(frame: view.frame)
         view.addSubview(mainView)
         
-        mainView.generateRandomKey.addTarget(self, action: #selector(keyGen), for: .touchUpInside)
-        mainView.sendKey.addTarget(self, action: #selector(sendKey), for: .touchUpInside)
-        mainView.sendText.addTarget(self, action: #selector(sendText), for: .touchUpInside)
-        mainView.encrypt.addTarget(self, action: #selector(encryptText), for: .touchUpInside)
-        mainView.decrypt.addTarget(self, action: #selector(decryptText), for: .touchUpInside)
-        
-        mainView.keyTextView.text = Encryption.generateRandomHex(bytelength: 32)
-        
+        setupButtons()
+        keyGen()
+
         // Tap recognizer to dismiss keyboard
         let tapGestureReconizer = UITapGestureRecognizer(target: self, action: #selector(tap))
         tapGestureReconizer.cancelsTouchesInView = false
@@ -32,15 +27,15 @@ class MainVC: UIViewController {
     }
     
     // Dismiss keyboard
-    @objc func tap(sender: UITapGestureRecognizer) {
+    @objc private func tap(sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
     
-    @objc func keyGen() {
+    @objc private func keyGen() {
         mainView.keyTextView.text = Encryption.generateRandomHex(bytelength: 32)
     }
     
-    @objc func encryptText() {
+    @objc private func encryptText() {
         guard let text = mainView.input.text else { return }
         if text == "" { return }
         guard let key = mainView.keyTextView.text else { return }
@@ -57,7 +52,7 @@ class MainVC: UIViewController {
         mainView.output.text = encryptedText
     }
     
-    @objc func decryptText() {
+    @objc private func decryptText() {
         guard let text = mainView.input.text else { return }
         if text == "" { return }
         guard let key = mainView.keyTextView.text else { return }
@@ -73,17 +68,25 @@ class MainVC: UIViewController {
         mainView.output.text = decryptedText
     }
     
-    @objc func sendKey() {
+    @objc private func sendKey() {
         performActivity(with: mainView.keyTextView.text ?? "")
     }
     
-    @objc func sendText() {
+    @objc private func sendText() {
         performActivity(with: mainView.output.text ?? "")
     }
     
-    func performActivity(with text: String) {
+    private func performActivity(with text: String) {
         ac = UIActivityViewController(activityItems: [text], applicationActivities: nil)
         ac.excludedActivityTypes = [.airDrop, .addToReadingList, .openInIBooks, .saveToCameraRoll]
         present(ac, animated: true)
+    }
+    
+    private func setupButtons() {
+        mainView.generateRandomKey.addTarget(self, action: #selector(keyGen), for: .touchUpInside)
+        mainView.sendKey.addTarget(self, action: #selector(sendKey), for: .touchUpInside)
+        mainView.sendText.addTarget(self, action: #selector(sendText), for: .touchUpInside)
+        mainView.encrypt.addTarget(self, action: #selector(encryptText), for: .touchUpInside)
+        mainView.decrypt.addTarget(self, action: #selector(decryptText), for: .touchUpInside)
     }
 }
