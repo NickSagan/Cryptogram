@@ -42,7 +42,7 @@ class MainView: UIView {
     var input: UITextView = {
         let txt = UITextView()
         txt.text = "Paste the text you want to encrypt or decrypt here"
-        txt.layer.borderColor = CGColor(gray: 100, alpha: 1)
+        txt.layer.borderColor = UIColor.gray.cgColor
         txt.layer.borderWidth = 1.0
         txt.layer.cornerRadius = 5.0
         return txt
@@ -51,7 +51,7 @@ class MainView: UIView {
     var output: UITextView = {
         let txt = UITextView()
         txt.text = "The decrypted or encrypted text will appear here"
-        txt.layer.borderColor = CGColor(gray: 100, alpha: 1)
+        txt.layer.borderColor = UIColor.gray.cgColor
         txt.layer.borderWidth = 1.0
         txt.layer.cornerRadius = 5.0
         return txt
@@ -60,7 +60,7 @@ class MainView: UIView {
     var keyTextView: UITextView = {
         let txt = UITextView()
         txt.text = "Paste your key here"
-        txt.layer.borderColor = CGColor(gray: 100, alpha: 1)
+        txt.layer.borderColor = UIColor.gray.cgColor
         txt.layer.borderWidth = 1.0
         txt.layer.cornerRadius = 5.0
         return txt
@@ -81,18 +81,6 @@ class MainView: UIView {
         btn.setTitle("Decrypt", for: .normal)
         return btn
     }()
-    
-//    var stackView: UIStackView {
-//        let sw = UIStackView()
-//        sw.axis = NSLayoutConstraint.Axis.horizontal
-//        sw.distribution = UIStackView.Distribution.fillEqually
-//        sw.alignment = UIStackView.Alignment.center
-//        sw.spacing = 15
-//        sw.addArrangedSubview(encrypt)
-//        sw.addArrangedSubview(decrypt)
-//        sw.translatesAutoresizingMaskIntoConstraints = false
-//        return sw
-//    }
     
     var sendText: UIButton = {
         let btn = UIButton(type: .system)
@@ -125,6 +113,7 @@ class MainView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUp()
+        setAppearance()
     }
     
     func setUp() {
@@ -170,21 +159,21 @@ class MainView: UIView {
             
             keyTextView.topAnchor.constraint(equalTo: keyLabel.bottomAnchor, constant: 10),
             keyTextView.leadingAnchor.constraint(equalTo: margin.leadingAnchor),
-            keyTextView.heightAnchor.constraint(equalTo: margin.heightAnchor, multiplier: 0.05),
+            keyTextView.heightAnchor.constraint(equalTo: margin.heightAnchor, multiplier: 0.055),
             
             generateRandomKey.topAnchor.constraint(equalTo: keyLabel.bottomAnchor, constant: 10),
             generateRandomKey.leadingAnchor.constraint(equalTo: keyTextView.trailingAnchor, constant: 20),
             generateRandomKey.trailingAnchor.constraint(equalTo: margin.trailingAnchor),
             
-            encrypt.topAnchor.constraint(equalTo: keyTextView.bottomAnchor, constant: 15),
+            encrypt.topAnchor.constraint(equalTo: keyTextView.bottomAnchor, constant: 20),
             encrypt.leadingAnchor.constraint(equalTo: margin.leadingAnchor, constant: 50),
             
-            decrypt.topAnchor.constraint(equalTo: keyTextView.bottomAnchor, constant: 15),
+            decrypt.topAnchor.constraint(equalTo: keyTextView.bottomAnchor, constant: 20),
             decrypt.leadingAnchor.constraint(equalTo: encrypt.trailingAnchor, constant: 20),
             decrypt.widthAnchor.constraint(equalTo: encrypt.widthAnchor),
             decrypt.trailingAnchor.constraint(equalTo: margin.trailingAnchor, constant: -50),
             
-            outputLabel.topAnchor.constraint(equalTo: encrypt.bottomAnchor, constant: 10),
+            outputLabel.topAnchor.constraint(equalTo: encrypt.bottomAnchor, constant: 20),
             outputLabel.leadingAnchor.constraint(equalTo: margin.leadingAnchor),
             
             output.topAnchor.constraint(equalTo: outputLabel.bottomAnchor, constant: 10),
@@ -204,5 +193,36 @@ class MainView: UIView {
             
         ]
         NSLayoutConstraint.activate(constraints)
+        
+    }
+
+    func setAppearance() {
+        
+        let labels: [UILabel] = [inputLabel, keyLabel, outputLabel]
+        let textViews: [UITextView] = [input, keyTextView, output]
+        
+        if traitCollection.userInterfaceStyle == .dark {
+            self.backgroundColor = .black
+            for view in labels {
+                view.backgroundColor = .black
+                view.textColor = .white
+            }
+            for view in textViews {
+                view.backgroundColor = .black
+                view.textColor = .white
+                view.layer.borderColor = UIColor.gray.cgColor
+            }
+        } else {
+            self.backgroundColor = .white
+            for view in labels {
+                view.backgroundColor = .white
+                view.textColor = .black
+            }
+            for view in textViews {
+                view.backgroundColor = .white
+                view.textColor = .black
+                view.layer.borderColor = UIColor.gray.cgColor
+            }
+        }
     }
 }
