@@ -53,6 +53,7 @@ class MainView: UIView {
     var output: UITextView = {
         let txt = UITextView()
         txt.text = "The decrypted or encrypted text will appear here"
+        txt.textColor = UIColor.lightGray
         txt.layer.borderColor = UIColor.gray.cgColor
         txt.layer.borderWidth = 1.0
         txt.layer.cornerRadius = 5.0
@@ -230,4 +231,13 @@ class MainView: UIView {
             }
         }
     }
+    
+    func resetTextViewColour() -> UIColor {
+        if traitCollection.userInterfaceStyle == .dark {
+            return .white
+        } else {
+            return .black
+        }
+    }
+    
 }
