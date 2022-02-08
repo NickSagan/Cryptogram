@@ -11,14 +11,31 @@ class MainVC: UIViewController {
     
     private var mainView: MainView!
     private var ac: UIActivityViewController!
+    private var savedPlaceholder: String = "" // fot custom textView placeholder
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView = MainView(frame: view.frame)
         view.addSubview(mainView)
         
+        // Setup placeholders for input/output textViews
+        mainView.input.textColor = UIColor.lightGray
+        mainView.output.textColor = UIColor.lightGray
+        mainView.input.delegate = self
+        mainView.output.delegate = self
+        
         setupButtons()
         keyGen()
+
+        // Tap recognizer to dismiss keyboard
+        let tapGestureReconizer = UITapGestureRecognizer(target: self, action: #selector(tap))
+        tapGestureReconizer.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGestureReconizer)
+    }
+    
+    // Dismiss keyboard
+    @objc private func tap(sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
     @objc private func keyGen() {
@@ -40,6 +57,8 @@ class MainVC: UIViewController {
         }
         
         mainView.output.text = encryptedText
+        // Resets TextView text colour to disable custom placeholder
+        mainView.output.textColor = mainView.resetTextViewColour()
     }
     
     @objc private func decryptText() {
@@ -56,6 +75,8 @@ class MainVC: UIViewController {
             print(error)
         }
         mainView.output.text = decryptedText
+        // Resets TextView text colour to disable custom placeholder
+        mainView.output.textColor = mainView.resetTextViewColour()
     }
     
     @objc private func sendKey() {
@@ -78,5 +99,25 @@ class MainVC: UIViewController {
         mainView.sendText.addTarget(self, action: #selector(sendText), for: .touchUpInside)
         mainView.encrypt.addTarget(self, action: #selector(encryptText), for: .touchUpInside)
         mainView.decrypt.addTarget(self, action: #selector(decryptText), for: .touchUpInside)
+    }
+}
+
+//MARK: - UITextViewDelegate - CUSTOM PLACEHOLDERS SETTINGS
+
+extension MainVC: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            savedPlaceholder = textView.text
+            textView.text = nil
+            textView.textColor = mainView.resetTextViewColour()
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = savedPlaceholder
+            textView.textColor = UIColor.lightGray
+        }
     }
 }
