@@ -9,6 +9,8 @@ import UIKit
 
 class MainView: UIView {
     
+//MARK: - VIEWS
+    
     var inputLabel: UILabel = {
         let label = UILabel()
         label.text = "Input:"
@@ -106,6 +108,8 @@ class MainView: UIView {
         return btn
     }()
     
+//MARK: - INITIALIZATION
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -125,10 +129,8 @@ class MainView: UIView {
         self.addSubview(input)
         self.addSubview(output)
         self.addSubview(keyTextView)
-        
         self.addSubview(encrypt)
         self.addSubview(decrypt)
-        
         self.addSubview(sendText)
         self.addSubview(sendKey)
         self.addSubview(generateRandomKey)
@@ -144,6 +146,8 @@ class MainView: UIView {
         sendText.translatesAutoresizingMaskIntoConstraints = false
         sendKey.translatesAutoresizingMaskIntoConstraints = false
         generateRandomKey.translatesAutoresizingMaskIntoConstraints = false
+
+        //MARK: - CONSTRAINTS
         
         let constraints: [NSLayoutConstraint] = [
             inputLabel.topAnchor.constraint(equalTo: margin.topAnchor),
@@ -193,9 +197,10 @@ class MainView: UIView {
             
         ]
         NSLayoutConstraint.activate(constraints)
-        
     }
-
+    
+//MARK: - APPEARANCE
+    
     func setAppearance() {
         
         let labels: [UILabel] = [inputLabel, keyLabel, outputLabel]

@@ -19,16 +19,6 @@ class MainVC: UIViewController {
         
         setupButtons()
         keyGen()
-
-        // Tap recognizer to dismiss keyboard
-        let tapGestureReconizer = UITapGestureRecognizer(target: self, action: #selector(tap))
-        tapGestureReconizer.cancelsTouchesInView = false
-        view.addGestureRecognizer(tapGestureReconizer)
-    }
-    
-    // Dismiss keyboard
-    @objc private func tap(sender: UITapGestureRecognizer) {
-        view.endEditing(true)
     }
     
     @objc private func keyGen() {
