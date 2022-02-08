@@ -11,8 +11,7 @@ class MainVC: UIViewController {
     
     private var mainView: MainView!
     private var ac: UIActivityViewController!
-    private var savedPlaceholder: String = "" // fot custom textView placeholder
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView = MainView(frame: view.frame)
@@ -108,15 +107,19 @@ extension MainVC: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
-            savedPlaceholder = textView.text
             textView.text = nil
             textView.textColor = mainView.resetTextViewColour()
         }
+        textView.selectAll(nil) // Autoselect all text so it's easier to copy/paste
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = savedPlaceholder
+            if textView.tag == 11 {
+                textView.text = mainView.inputPlaceholder
+            } else if textView.tag == 22 {
+                textView.text = mainView.outputPlaceholder
+            }
             textView.textColor = UIColor.lightGray
         }
     }
