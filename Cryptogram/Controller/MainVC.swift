@@ -10,6 +10,7 @@ import UIKit
 class MainVC: UIViewController {
     
     var mainView: MainView!
+    var ac: UIActivityViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,10 +74,16 @@ class MainVC: UIViewController {
     }
     
     @objc func sendKey() {
-        print("Yes")
+        performActivity(with: mainView.keyTextView.text ?? "")
     }
     
     @objc func sendText() {
-        print("Yes")
+        performActivity(with: mainView.output.text ?? "")
+    }
+    
+    func performActivity(with text: String) {
+        ac = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+        ac.excludedActivityTypes = [.airDrop, .addToReadingList, .openInIBooks, .saveToCameraRoll]
+        present(ac, animated: true)
     }
 }
