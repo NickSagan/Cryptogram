@@ -41,15 +41,18 @@ class MainView: UIView {
         return label
     }()
     
+    let inputPlaceholder: String = "Paste the text you want to encrypt or decrypt here"
     var input: UITextView = {
         let txt = UITextView()
         txt.text = "Paste the text you want to encrypt or decrypt here"
         txt.layer.borderColor = UIColor.gray.cgColor
         txt.layer.borderWidth = 1.0
         txt.layer.cornerRadius = 5.0
+        txt.tag = 11
         return txt
     }()
     
+    let outputPlaceholder: String = "The decrypted or encrypted text will appear here"
     var output: UITextView = {
         let txt = UITextView()
         txt.text = "The decrypted or encrypted text will appear here"
@@ -57,6 +60,7 @@ class MainView: UIView {
         txt.layer.borderColor = UIColor.gray.cgColor
         txt.layer.borderWidth = 1.0
         txt.layer.cornerRadius = 5.0
+        txt.tag = 22
         return txt
     }()
     
