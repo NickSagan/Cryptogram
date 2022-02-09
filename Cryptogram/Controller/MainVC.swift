@@ -7,6 +7,9 @@
 
 import UIKit
 
+// TODO: Image encryption
+// https://stackoverflow.com/questions/50085231/uiimage-to-string-and-string-to-uiimage-in-swift
+
 class MainVC: UIViewController {
     
     private var mainView: MainView!
