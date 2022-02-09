@@ -12,7 +12,7 @@ import UIKit
 
 class MainVC: UIViewController {
     
-    private var mainView: MainView!
+    var mainView: MainView!
     private var ac: UIActivityViewController!
 
     override func viewDidLoad() {

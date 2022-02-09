@@ -18,7 +18,7 @@ class CryptogramTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func testInputTextViewPlaceholder() throws {
+    func testTextViewPlaceholders() throws {
         let mv = MainView()
         XCTAssertTrue(!mv.outputPlaceholder.isEmpty)
         XCTAssertTrue(!mv.inputPlaceholder.isEmpty)
@@ -26,10 +26,12 @@ class CryptogramTests: XCTestCase {
         XCTAssertEqual(mv.output.text, "The decrypted or encrypted text will appear here")
         
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testPlaceholdersColoursAfterViewDidLoad() throws {
+        let vc = MainVC()
+        vc.viewDidLoad()
+        XCTAssertEqual(vc.mainView.output.textColor, UIColor.lightGray)
+        XCTAssertEqual(vc.mainView.input.textColor, UIColor.lightGray)
     }
 
     func testPerformanceExample() throws {
