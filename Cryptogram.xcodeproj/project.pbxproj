@@ -33,6 +33,8 @@
 		9193FE0427B29311003789F9 /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193FDED27B29311003789F9 /* IQNSArray+Sort.swift */; };
 		9193FE0527B29311003789F9 /* IQKeyboardManager+UITextFieldViewNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193FDEE27B29311003789F9 /* IQKeyboardManager+UITextFieldViewNotification.swift */; };
 		9193FE0D27B401A3003789F9 /* CryptogramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193FE0C27B401A3003789F9 /* CryptogramTests.swift */; };
+		9193FE1A27B40BB0003789F9 /* CryptogramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193FE1927B40BB0003789F9 /* CryptogramUITests.swift */; };
+		9193FE1C27B40BB0003789F9 /* CryptogramUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193FE1B27B40BB0003789F9 /* CryptogramUITestsLaunchTests.swift */; };
 		91D614EF27B0286A0094D9C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D614EE27B0286A0094D9C3 /* AppDelegate.swift */; };
 		91D614F127B0286A0094D9C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D614F027B0286A0094D9C3 /* SceneDelegate.swift */; };
 		91D614F827B0286E0094D9C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91D614F727B0286E0094D9C3 /* Assets.xcassets */; };
@@ -43,6 +45,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		9193FE0E27B401A3003789F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91D614E327B0286A0094D9C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 91D614EA27B0286A0094D9C3;
+			remoteInfo = Cryptogram;
+		};
+		9193FE1D27B40BB0003789F9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 91D614E327B0286A0094D9C3 /* Project object */;
 			proxyType = 1;
@@ -80,6 +89,9 @@
 		9193FDEE27B29311003789F9 /* IQKeyboardManager+UITextFieldViewNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQKeyboardManager+UITextFieldViewNotification.swift"; sourceTree = "<group>"; };
 		9193FE0A27B401A3003789F9 /* CryptogramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptogramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9193FE0C27B401A3003789F9 /* CryptogramTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptogramTests.swift; sourceTree = "<group>"; };
+		9193FE1727B40BB0003789F9 /* CryptogramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptogramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9193FE1927B40BB0003789F9 /* CryptogramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptogramUITests.swift; sourceTree = "<group>"; };
+		9193FE1B27B40BB0003789F9 /* CryptogramUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptogramUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		91D614EB27B0286A0094D9C3 /* Cryptogram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptogram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91D614EE27B0286A0094D9C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91D614F027B0286A0094D9C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +105,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		9193FE0727B401A3003789F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9193FE1427B40BB0003789F9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -215,11 +234,21 @@
 			path = CryptogramTests;
 			sourceTree = "<group>";
 		};
+		9193FE1827B40BB0003789F9 /* CryptogramUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9193FE1927B40BB0003789F9 /* CryptogramUITests.swift */,
+				9193FE1B27B40BB0003789F9 /* CryptogramUITestsLaunchTests.swift */,
+			);
+			path = CryptogramUITests;
+			sourceTree = "<group>";
+		};
 		91D614E227B0286A0094D9C3 = {
 			isa = PBXGroup;
 			children = (
 				91D614ED27B0286A0094D9C3 /* Cryptogram */,
 				9193FE0B27B401A3003789F9 /* CryptogramTests */,
+				9193FE1827B40BB0003789F9 /* CryptogramUITests */,
 				91D614EC27B0286A0094D9C3 /* Products */,
 				91D6150427B02ADD0094D9C3 /* Frameworks */,
 			);
@@ -230,6 +259,7 @@
 			children = (
 				91D614EB27B0286A0094D9C3 /* Cryptogram.app */,
 				9193FE0A27B401A3003789F9 /* CryptogramTests.xctest */,
+				9193FE1727B40BB0003789F9 /* CryptogramUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -278,6 +308,24 @@
 			productReference = 9193FE0A27B401A3003789F9 /* CryptogramTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		9193FE1627B40BB0003789F9 /* CryptogramUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9193FE1F27B40BB0003789F9 /* Build configuration list for PBXNativeTarget "CryptogramUITests" */;
+			buildPhases = (
+				9193FE1327B40BB0003789F9 /* Sources */,
+				9193FE1427B40BB0003789F9 /* Frameworks */,
+				9193FE1527B40BB0003789F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9193FE1E27B40BB0003789F9 /* PBXTargetDependency */,
+			);
+			name = CryptogramUITests;
+			productName = CryptogramUITests;
+			productReference = 9193FE1727B40BB0003789F9 /* CryptogramUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		91D614EA27B0286A0094D9C3 /* Cryptogram */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 91D614FF27B0286E0094D9C3 /* Build configuration list for PBXNativeTarget "Cryptogram" */;
@@ -309,6 +357,10 @@
 						CreatedOnToolsVersion = 13.0;
 						TestTargetID = 91D614EA27B0286A0094D9C3;
 					};
+					9193FE1627B40BB0003789F9 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 91D614EA27B0286A0094D9C3;
+					};
 					91D614EA27B0286A0094D9C3 = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -329,12 +381,20 @@
 			targets = (
 				91D614EA27B0286A0094D9C3 /* Cryptogram */,
 				9193FE0927B401A3003789F9 /* CryptogramTests */,
+				9193FE1627B40BB0003789F9 /* CryptogramUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9193FE0827B401A3003789F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9193FE1527B40BB0003789F9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -358,6 +418,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				9193FE0D27B401A3003789F9 /* CryptogramTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9193FE1327B40BB0003789F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9193FE1C27B40BB0003789F9 /* CryptogramUITestsLaunchTests.swift in Sources */,
+				9193FE1A27B40BB0003789F9 /* CryptogramUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +472,11 @@
 			isa = PBXTargetDependency;
 			target = 91D614EA27B0286A0094D9C3 /* Cryptogram */;
 			targetProxy = 9193FE0E27B401A3003789F9 /* PBXContainerItemProxy */;
+		};
+		9193FE1E27B40BB0003789F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 91D614EA27B0286A0094D9C3 /* Cryptogram */;
+			targetProxy = 9193FE1D27B40BB0003789F9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -461,6 +535,50 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cryptogram.app/Cryptogram";
+			};
+			name = Release;
+		};
+		9193FE2027B40BB0003789F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M8KC244ECU;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NickSagan.CryptogramUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Cryptogram;
+			};
+			name = Debug;
+		};
+		9193FE2127B40BB0003789F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M8KC244ECU;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NickSagan.CryptogramUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Cryptogram;
 			};
 			name = Release;
 		};
@@ -646,6 +764,15 @@
 			buildConfigurations = (
 				9193FE1027B401A3003789F9 /* Debug */,
 				9193FE1127B401A3003789F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9193FE1F27B40BB0003789F9 /* Build configuration list for PBXNativeTarget "CryptogramUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9193FE2027B40BB0003789F9 /* Debug */,
+				9193FE2127B40BB0003789F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
