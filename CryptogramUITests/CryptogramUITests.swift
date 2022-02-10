@@ -30,6 +30,22 @@ class CryptogramUITests: XCTestCase {
         app.buttons["generateKey"].tap()
         XCTAssertEqual((tv.value as! String).count, 64)
     }
+    
+    
+    func testEncryption() throws {
+        let app = XCUIApplication()
+        app.launch()
+        let input = app.textViews["input"]
+        let encrypt = app.buttons["encrypt"]
+        let output = app.textViews["output"]
+        
+        input.tap()
+        input.typeText("Test text")
+        encrypt.tap()
+        XCTAssertNotNil(output.value)
+        XCTAssertEqual(input.value as! String, "Test text")
+    }
+    
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
