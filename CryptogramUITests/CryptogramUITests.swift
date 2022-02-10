@@ -63,6 +63,30 @@ class CryptogramUITests: XCTestCase {
         XCTAssertNotNil(key.value)
         XCTAssertEqual(output.value as! String, "Hello World")
     }
+    
+    func testSendTextAndActivity() {
+        let app = XCUIApplication()
+        app.launch()
+        let ac = app.otherElements["ActivityListView"]
+        let input = app.textViews["input"]
+        let encrypt = app.buttons["encrypt"]
+        let decrypt = app.buttons["decrypt"]
+        let output = app.textViews["output"]
+        let key = app.textViews["keyTextView"]
+        let sendText = app.buttons["sendText"]
+        let sendKey = app.buttons["sendKey"]
+        
+        input.tap()
+        input.typeText("Test text")
+        encrypt.tap()
+        sendText.tap()
+        ac.buttons.element(boundBy: 1).tap() // Copy https://stackoverflow.com/a/65248475/16935118
+        
+        input.tap(withNumberOfTaps: 2, numberOfTouches: 1)
+        app.menuItems["Paste"].tap()
+        decrypt.tap()
+        XCTAssertEqual(output.value as! String, "Test text")
+    }
 
 //    func testLaunchPerformance() throws {
 //        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
