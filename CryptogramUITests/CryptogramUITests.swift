@@ -30,8 +30,7 @@ class CryptogramUITests: XCTestCase {
         app.buttons["generateKey"].tap()
         XCTAssertEqual((tv.value as! String).count, 64)
     }
-    
-    
+
     func testEncryption() throws {
         let app = XCUIApplication()
         app.launch()
@@ -46,13 +45,31 @@ class CryptogramUITests: XCTestCase {
         XCTAssertEqual(input.value as! String, "Test text")
     }
     
+    func testDecryption() throws {
+        let app = XCUIApplication()
+        app.launch()
+        let input = app.textViews["input"]
+        let decrypt = app.buttons["decrypt"]
+        let output = app.textViews["output"]
+        let key = app.textViews["keyTextView"]
+        
+        input.tap()
+        input.typeText("f6697786da204385dd76b141530b657792175cb03e776eeb8084d65affc0cf55e1642ba03ffdbb861fb0730c14f135b7aa9aea9b407e750deeb3e97192b49f8ea89f4c91d95b2b4770e8da73eb9aff3e")
+        key.tap(withNumberOfTaps: 2, numberOfTouches: 1)
+        key.typeText("4452d71687b6bc2c9389c3349fdc17fb3dfbba6224affb7676e1337926cdd602")
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+        decrypt.tap()
+        XCTAssertNotNil(input.value)
+        XCTAssertNotNil(key.value)
+        XCTAssertEqual(output.value as! String, "Hello World")
     }
+
+//    func testLaunchPerformance() throws {
+//        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
+//            // This measures how long it takes to launch your application.
+//            measure(metrics: [XCTApplicationLaunchMetric()]) {
+//                XCUIApplication().launch()
+//            }
+//        }
+//    }
 }
