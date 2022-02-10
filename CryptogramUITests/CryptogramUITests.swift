@@ -72,10 +72,8 @@ class CryptogramUITests: XCTestCase {
         let encrypt = app.buttons["encrypt"]
         let decrypt = app.buttons["decrypt"]
         let output = app.textViews["output"]
-        let key = app.textViews["keyTextView"]
         let sendText = app.buttons["sendText"]
-        let sendKey = app.buttons["sendKey"]
-        
+   
         input.tap()
         input.typeText("Test text")
         encrypt.tap()
@@ -86,6 +84,33 @@ class CryptogramUITests: XCTestCase {
         app.menuItems["Paste"].tap()
         decrypt.tap()
         XCTAssertEqual(output.value as! String, "Test text")
+    }
+    
+    func testSendKeyAndActivity() {
+        let app = XCUIApplication()
+        app.launch()
+        let ac = app.otherElements["ActivityListView"]
+        let input = app.textViews["input"]
+        let encrypt = app.buttons["encrypt"]
+        let decrypt = app.buttons["decrypt"]
+        let output = app.textViews["output"]
+        let key = app.textViews["keyTextView"]
+        let sendKey = app.buttons["sendKey"]
+        
+        input.tap()
+        input.typeText("Yet Another Random Text")
+        encrypt.tap()
+        
+        let encryptedText = output.value as! String
+        sendKey.tap()
+        ac.buttons.element(boundBy: 1).tap() // Copy https://stackoverflow.com/a/65248475/16935118
+
+        key.tap(withNumberOfTaps: 2, numberOfTouches: 1)
+        app.menuItems["Paste"].tap()
+        input.tap()
+        input.typeText(encryptedText)
+        decrypt.tap()
+        XCTAssertEqual(output.value as! String, "Yet Another Random Text")
     }
 
 //    func testLaunchPerformance() throws {
