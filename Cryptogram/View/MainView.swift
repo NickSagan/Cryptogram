@@ -49,6 +49,7 @@ class MainView: UIView {
         txt.layer.borderWidth = 1.0
         txt.layer.cornerRadius = 5.0
         txt.tag = 11
+        txt.accessibilityIdentifier = "input"
         return txt
     }()
     
@@ -61,6 +62,7 @@ class MainView: UIView {
         txt.layer.borderWidth = 1.0
         txt.layer.cornerRadius = 5.0
         txt.tag = 22
+        txt.accessibilityIdentifier = "output"
         return txt
     }()
     
@@ -70,6 +72,7 @@ class MainView: UIView {
         txt.layer.borderColor = UIColor.gray.cgColor
         txt.layer.borderWidth = 1.0
         txt.layer.cornerRadius = 5.0
+        txt.accessibilityIdentifier = "keyTextView"
         return txt
     }()
     
@@ -78,6 +81,7 @@ class MainView: UIView {
         var config = UIButton.Configuration.filled()
         btn.configuration = config
         btn.setTitle("Encrypt", for: .normal)
+        btn.accessibilityIdentifier = "encrypt"
         return btn
     }()
     
@@ -86,6 +90,7 @@ class MainView: UIView {
         var config = UIButton.Configuration.filled()
         btn.configuration = config
         btn.setTitle("Decrypt", for: .normal)
+        btn.accessibilityIdentifier = "decrypt"
         return btn
     }()
     
@@ -94,6 +99,7 @@ class MainView: UIView {
         var config = UIButton.Configuration.filled()
         btn.configuration = config
         btn.setTitle("Send text", for: .normal)
+        btn.accessibilityIdentifier = "sendText"
         return btn
     }()
     
@@ -102,6 +108,7 @@ class MainView: UIView {
         var config = UIButton.Configuration.filled()
         btn.configuration = config
         btn.setTitle("Send key", for: .normal)
+        btn.accessibilityIdentifier = "sendKey"
         return btn
     }()
     
@@ -110,6 +117,7 @@ class MainView: UIView {
         var config = UIButton.Configuration.plain()
         btn.configuration = config
         btn.setTitle("Random key", for: .normal)
+        btn.accessibilityIdentifier = "generateKey"
         return btn
     }()
     
