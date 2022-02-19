@@ -3,13 +3,13 @@ This app allows users to encrypt and decrypt text.
 
 # This project contains
 
-* UIKit // in progress...
-* I learned  // in progress...
+* UIKit, AES-256 bit encryption library
 
 # How to use the app
 
-* // in progress...
-* // in progress...
+* Type in your text into Input field
+* Press Encrypt
+* Paste your encrypted text from Output field or use send text / send key buttons
 
 ![Cryptogram]()
 
