@@ -10,6 +10,8 @@ import UIKit
 // TODO: Image encryption
 // https://stackoverflow.com/questions/50085231/uiimage-to-string-and-string-to-uiimage-in-swift
 
+// TODO: Add Custom Keyboard Extension
+
 class MainVC: UIViewController {
     
     var mainView: MainView!
